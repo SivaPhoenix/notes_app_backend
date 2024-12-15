@@ -21,6 +21,8 @@ app.post('/add-note', authenticateToken, notesController.addNote);
 app.get('/get-all-notes', authenticateToken, notesController.getAllNotes);
 app.put('/edit-note/:noteId', authenticateToken, notesController.editNote);
 app.delete('/delete-note/:noteId', authenticateToken, notesController.deleteNote);
+// app.get("/search-notes",authenticateToken, notesController.searchNotes)
+app.put("/update-isPinned/:id", authenticateToken, notesController.updatePin);
 
 app.listen(8080, () => {
     console.log('Server is running on http://localhost:8080');
