@@ -17,7 +17,7 @@ exports.signup = async (req, res) => {
     const user = new User({ fullName, email, password });
     await user.save();
 
-    const accessToken = jwt.sign({ user }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30m' });
+    const accessToken = jwt.sign({ user }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '3d' });
     res.json({ error: false, user, message: "Account created successfully", accessToken });
 };
 
