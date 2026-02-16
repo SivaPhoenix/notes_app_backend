@@ -11,7 +11,7 @@ const notesController = require('./controllers/notes.controller');
 const app = express();
 const port = process.env.PORT || 8080;
 
-mongoose.connect(config.connectionString, { useNewUrlParser: true, useUnifiedTopology: true }).catch((error) => {
+mongoose.connect(config.connectionString).catch((error) => {
     console.error('MongoDB connection failed:', error.message);
 });
 
