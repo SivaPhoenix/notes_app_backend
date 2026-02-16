@@ -3,15 +3,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const config = require('./config.json');
 const { authenticateToken } = require('./utilities/authenticate');
 const authController = require('./controllers/auth.controller');
 const notesController = require('./controllers/notes.controller');
 
 const app = express();
 const port = process.env.PORT || 8080;
+const mongoUri = process.env.MONGO_URI;
 
-mongoose.connect(config.connectionString).catch((error) => {
+mongoose.connect(mongoUri).catch((error) => {
     console.error('MongoDB connection failed:', error.message);
 });
 
